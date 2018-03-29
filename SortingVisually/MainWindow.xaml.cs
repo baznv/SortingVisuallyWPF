@@ -46,14 +46,18 @@ namespace SortingVisually
                 
                 for (int j = 1; j < N-i; j++)
                 {
-                    Binding binding = new Binding();
-                    //binding.ElementName = "j";
-                    //binding.Path = new PropertyPath("j");
-                    binding.Source = j;
-                    //lblText.SetBinding(Label.ContentProperty, binding);
-                    BindingOperations.SetBinding(lblText, Label.ContentProperty, binding);
-                    lblText.Content = j + "<" + (j - 1);
-                    //Thread.Sleep(100);
+                    {
+                        Binding binding = new Binding();
+                        //binding.ElementName = "j";
+                        //binding.Path = new PropertyPath("j");
+                        binding.Source = j;
+                        //lblText.SetBinding(Label.ContentProperty, binding);
+                        BindingOperations.SetBinding(lblText, Label.ContentProperty, binding);
+                        lblText.Content = j + "<" + (j - 1);
+
+                    }
+                    
+                    Thread.Sleep(100);
                     if (quantity[j] < quantity[j - 1])
                     {
                         Swap(j, j - 1);
