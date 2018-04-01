@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SortingVisually"
         mc:Ignorable="d"
-        Title="SortingVisually" Height="350" Width="620" Loaded="Window_Loaded" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+        Title="SortingVisually" Height="350" Width="620" Loaded="Window_Loaded" SizeToContent="WidthAndHeight" 
+        WindowStartupLocation="CenterScreen" MinWidth="350" MinHeight="550">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -14,17 +15,29 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <StackPanel Height="50" VerticalAlignment="Stretch" Grid.Row="0" Background="AliceBlue" Orientation="Horizontal">
-            <RadioButton GroupName="Sorting" Content="Пузырьком" 
-                         HorizontalAlignment="Left" VerticalAlignment="Center" 
-                         IsChecked="True" />
-            <Button Name="Start" Content="Start" HorizontalAlignment="Right" Height="50" Width="50" 
-                    Click="Start_Click"/>
-            
-        </StackPanel>
-        <StackPanel Name="Output" Grid.Row="1" Grid.Column="0" Background="Aquamarine">
+        <GroupBox Grid.Row="0">
+            <GroupBox.Header>
+                <Button Content="Again" Height="25" Width="80" 
+                        Click="Button_Click"/>
+            </GroupBox.Header>
+            <DockPanel>
+                <RadioButton GroupName="Sorting" Name="Bubble" Content="Пузырьком" 
+                         DockPanel.Dock="Left" VerticalAlignment="Center"
+                             IsChecked="false"/>
+                <RadioButton GroupName="Sorting" Name="Inserts" Content="Вставками" 
+                         DockPanel.Dock="Left" VerticalAlignment="Center"
+                             IsChecked="False"/>
+                <RadioButton GroupName="Sorting" Name="Selection" Content="Выбором" 
+                         DockPanel.Dock="Left"  VerticalAlignment="Center"
+                             IsChecked="False"/>
+                <Button Name="Start" Content="Start" Height="25" Width="80" 
+                        DockPanel.Dock="Right" VerticalAlignment="Center" 
+                        Click="Start_Click"/>
+            </DockPanel>
+        </GroupBox>
+        <StackPanel Name="Output" Grid.Row="1" Grid.Column="0" >
             <ListBox x:Name="lbox" 
-                     VerticalAlignment="Stretch" 
+                     VerticalAlignment="Center" 
                      HorizontalAlignment="Stretch" 
                      FontSize="10" BorderThickness="0">
                 
